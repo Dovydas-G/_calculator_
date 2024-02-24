@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+    padding: 60px 0;
+}
+
+
+.row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 500px;
+    background-color: rgb(27, 26, 26);
+    gap: 15px;
+    border-radius: 30px;
+
+}
+
+.column {
+    display: flex;
+    gap: 10px;
+}
+
+.column > .primary-display,
+.column > .secondary-display {
+    justify-content: end;
+    width: 230px;
+    background-color: transparent;
+    cursor: default;
+    border-radius: 0;
+    font-size: 30px;
+}
+
+.column > .secondary-display {
+    border-bottom: 1px solid #474545;
+    color: #8a8686;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #474545;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    
+
+}
+
+.column > .clean-btn {
+    background-color: #c74949;
+    color: #474545;
+}
+
+.column > .brackets-btn,
+.column > .percent-btn,
+.column > .divide-btn,
+.column > .multiply-btn,
+.column > .minus-btn,
+.column > .plus-btn {
+    color: #6ff36f;
+}
+
+.column > .equal-btn {
+    background-color: #6ff36f;
+    color: #474545;
+}
