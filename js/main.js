@@ -76,116 +76,147 @@ const dotBtnDOM = document.querySelector('.dot-btn');
 const equalBtnDOM = document.querySelector('.equal-btn');
 
 
+
+let str = '';
 oneBtnDOM.addEventListener('click', function () {
-    let str = '';
     primaryDisplayDOM.textContent += 1;
     str += primaryDisplayDOM.textContent;
-    console.log(str)
 })
 
 twoBtnDOM.addEventListener('click', function () {
-    let str = '';
     primaryDisplayDOM.textContent += 2;
     str += primaryDisplayDOM.textContent;
-    console.log(str)
+   
 })
 threeBtnDOM.addEventListener('click', function () {
-    let str = '';
     primaryDisplayDOM.textContent += 3;
     str += primaryDisplayDOM.textContent;
-    console.log(str)
+    
 })
 fourBtnDOM.addEventListener('click', function () {
-    let str = '';
     primaryDisplayDOM.textContent += 4;
     str += primaryDisplayDOM.textContent;
-    console.log(str)
+    
 })
 fiveBtnDOM.addEventListener('click', function () {
-    let str = '';
     primaryDisplayDOM.textContent += 5;
     str += primaryDisplayDOM.textContent;
-    console.log(str)
+    
 })
 sixBtnDOM.addEventListener('click', function () {
-    let str = '';
     primaryDisplayDOM.textContent += 6;
     str += primaryDisplayDOM.textContent;
-    console.log(str)
+    
 })
 
 sevenBtnDOM.addEventListener('click', function () {
-    let str = '';
     primaryDisplayDOM.textContent += 7;
     str += primaryDisplayDOM.textContent;
-    console.log(str)
+    
 })
 
 eightBtnDOM.addEventListener('click', function () {
-    let str = '';
     primaryDisplayDOM.textContent += 8;
     str += primaryDisplayDOM.textContent;
-    console.log(str)
+    
 })
 
 nineBtnDOM.addEventListener('click', function () {
-    let str = '';
     primaryDisplayDOM.textContent += 9;
     str += primaryDisplayDOM.textContent;
-    console.log(str)
+    
 })
 
 
 zeroBtnDOM.addEventListener('click', function () {
-    let str = '';
     primaryDisplayDOM.textContent += 0;
     str += primaryDisplayDOM.textContent;
-    console.log(str)
+    
 })
 
 
 plusBtnDOM.addEventListener('click', function () {
-    let str = '';
     primaryDisplayDOM.textContent += ' + ';
     str += primaryDisplayDOM.textContent
     
-    console.log(str);
+    
 })
 
 minusBtnDOM.addEventListener('click', function () {
-    let str = '';
     primaryDisplayDOM.textContent += ' - ';
     str += primaryDisplayDOM.textContent
     
-    console.log(str);
 })
 
+multiplyBtnDOM.addEventListener('click', function () {
+    primaryDisplayDOM.textContent += ' * ';
+    str += primaryDisplayDOM.textContent
+    
+    
+})
+
+divideBtnDOM.addEventListener('click', function () {
+    primaryDisplayDOM.textContent += ' ÷ ';
+    str += primaryDisplayDOM.textContent
+    
+})
+percentBtnDOM.addEventListener('click', function () {
+    primaryDisplayDOM.textContent += ' % ';
+    str += primaryDisplayDOM.textContent
+    console.log(str.length)
+    
+})
+
+dotBtnDOM.addEventListener('click', function () {
+    primaryDisplayDOM.textContent += '.';
+    str += primaryDisplayDOM.textContent
+    
+})
+
+
 equalBtnDOM.addEventListener('click', function () {
+  
+    
     let str = '';
+    
     
     primaryDisplayDOM.textContent;
     str += primaryDisplayDOM.textContent
     
-    let numArr = str.split(' + ' || ' - ');
+    
+
+    let numArr = str.split(' ');
     let count = 0;
     for (let i = 0; i < numArr.length; i++) {
-        if (numArr[i] >= '1' && numArr[i] <= '9') {
-            count += (+ numArr[i]);
+        if (numArr[i] === '+') {
+           count += (+ numArr[i += 1]);
         }
+        else if (numArr[i] === '-') {
+            count -= (+ numArr[i += 1]);
+        }
+        else if (numArr[i] === '*') {
+            count *= (+ numArr[i += 1]);
+        }
+        else if (numArr[i] === '÷') {
+            count /= (+ numArr[i += 1]);
+        }
+        else count += (+ numArr[i]);
     }
     
-    secondaryDisplayDOM.textContent += ('' + count)
+   
+    secondaryDisplayDOM.textContent += ('' + count);
     
-    console.log(count)
+    
 })
 
 
 
+
 cleanBtnDOM.addEventListener('click', function () {
-    let str = '';
     primaryDisplayDOM.textContent = '';
     str += primaryDisplayDOM.textContent;
     secondaryDisplayDOM.textContent = '';
+    str = '';
     console.log(str);
 })
 
