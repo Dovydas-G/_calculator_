@@ -53,6 +53,8 @@ contentDOM.innerHTML = HTML;
 let primaryDisplayDOM = document.querySelector('.primary-display');
 let secondaryDisplayDOM = document.querySelector('.secondary-display');
 
+
+// Num button
 const oneBtnDOM = document.querySelector('.one-btn');
 const twoBtnDOM = document.querySelector('.two-btn');
 const threeBtnDOM = document.querySelector('.three-btn');
@@ -64,6 +66,8 @@ const eightBtnDOM = document.querySelector('.eight-btn');
 const nineBtnDOM = document.querySelector('.nine-btn');
 const zeroBtnDOM = document.querySelector('.zero-btn')
 
+
+// Arithmetic Operators
 const cleanBtnDOM = document.querySelector('.clean-btn');
 const bracketsBtnDOM = document.querySelector('.brackets-btn');
 const percentBtnDOM = document.querySelector('.percent-btn');
@@ -79,60 +83,60 @@ const equalBtnDOM = document.querySelector('.equal-btn');
 
 let str = '';
 oneBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += 1;
+    primaryDisplayDOM.textContent += oneBtnDOM.textContent;
     str += primaryDisplayDOM.textContent;
-})
+});
 
 twoBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += 2;
+    primaryDisplayDOM.textContent += twoBtnDOM.textContent;
     str += primaryDisplayDOM.textContent;
    
-})
+});
 threeBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += 3;
+    primaryDisplayDOM.textContent += threeBtnDOM.textContent;
     str += primaryDisplayDOM.textContent;
     
-})
+});
 fourBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += 4;
+    primaryDisplayDOM.textContent += fourBtnDOM.textContent;
     str += primaryDisplayDOM.textContent;
     
-})
+});
 fiveBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += 5;
+    primaryDisplayDOM.textContent += fiveBtnDOM.textContent;
     str += primaryDisplayDOM.textContent;
     
-})
+});
 sixBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += 6;
+    primaryDisplayDOM.textContent += sixBtnDOM.textContent;
     str += primaryDisplayDOM.textContent;
     
-})
+});
 
 sevenBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += 7;
+    primaryDisplayDOM.textContent += sevenBtnDOM.textContent;
     str += primaryDisplayDOM.textContent;
     
-})
+});
 
 eightBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += 8;
+    primaryDisplayDOM.textContent += eightBtnDOM.textContent;
     str += primaryDisplayDOM.textContent;
     
-})
+});
 
 nineBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += 9;
+    primaryDisplayDOM.textContent += nineBtnDOM.textContent;
     str += primaryDisplayDOM.textContent;
     
-})
+});
 
 
 zeroBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += 0;
+    primaryDisplayDOM.textContent += zeroBtnDOM.textContent;
     str += primaryDisplayDOM.textContent;
     
-})
+});
 
 
 plusBtnDOM.addEventListener('click', function () {
@@ -140,53 +144,50 @@ plusBtnDOM.addEventListener('click', function () {
     str += primaryDisplayDOM.textContent
     
     
-})
+});
 
 minusBtnDOM.addEventListener('click', function () {
     primaryDisplayDOM.textContent += ' - ';
     str += primaryDisplayDOM.textContent
     
-})
+});
 
 multiplyBtnDOM.addEventListener('click', function () {
     primaryDisplayDOM.textContent += ' * ';
     str += primaryDisplayDOM.textContent
     
     
-})
+});
 
 divideBtnDOM.addEventListener('click', function () {
     primaryDisplayDOM.textContent += ' ÷ ';
     str += primaryDisplayDOM.textContent
     
-})
+});
 percentBtnDOM.addEventListener('click', function () {
     primaryDisplayDOM.textContent += ' % ';
     str += primaryDisplayDOM.textContent
-    console.log(str.length)
     
-})
+    
+});
 
 dotBtnDOM.addEventListener('click', function () {
     primaryDisplayDOM.textContent += '.';
     str += primaryDisplayDOM.textContent
     
-})
+});
 
 
 equalBtnDOM.addEventListener('click', function () {
   
-    
     let str = '';
     
-    
     primaryDisplayDOM.textContent;
-    str += primaryDisplayDOM.textContent
+    str += primaryDisplayDOM.textContent;
     
-    
-
     let numArr = str.split(' ');
     let count = 0;
+
     for (let i = 0; i < numArr.length; i++) {
         if (numArr[i] === '+') {
            count += (+ numArr[i += 1]);
@@ -200,25 +201,27 @@ equalBtnDOM.addEventListener('click', function () {
         else if (numArr[i] === '÷') {
             count /= (+ numArr[i += 1]);
         }
+        // else if (numArr[i] === '%') {
+        //      count += (+ (numArr[i+=1]));
+        // }
         else count += (+ numArr[i]);
     }
+    console.log(count)
     
-   
     secondaryDisplayDOM.textContent += ('' + count);
-    
-    
-})
+    console.log(str)
+});
 
 
-
+console.log(str)
 
 cleanBtnDOM.addEventListener('click', function () {
     primaryDisplayDOM.textContent = '';
     str += primaryDisplayDOM.textContent;
     secondaryDisplayDOM.textContent = '';
     str = '';
-    console.log(str);
-})
+    
+});
 
 
 
