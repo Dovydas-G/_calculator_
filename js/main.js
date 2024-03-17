@@ -140,34 +140,56 @@ zeroBtnDOM.addEventListener('click', function () {
 
 
 plusBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += ' + ';
-    str += primaryDisplayDOM.textContent
-    
+
+    if (typeof (+ str) === 'number' && str.length > 0) {
+        if (str[str.length -1] !== ' '){
+            primaryDisplayDOM.textContent += ' + ';
+            str += primaryDisplayDOM.textContent;
+        }
+    }
     
 });
 
 minusBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += ' - ';
-    str += primaryDisplayDOM.textContent
+
+    if (typeof (+ str) === 'number' && str.length > 0) {
+        if (str[str.length -1] !== ' '){
+            primaryDisplayDOM.textContent += ' - ';
+            str += primaryDisplayDOM.textContent;
+        }
+    }
     
 });
 
 multiplyBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += ' * ';
-    str += primaryDisplayDOM.textContent
     
-    
+    if (typeof (+ str) === 'number' && str.length > 0) {
+        if (str[str.length -1] !== ' '){
+            primaryDisplayDOM.textContent += ' * ';
+            str += primaryDisplayDOM.textContent;
+        }
+    }
+     
 });
 
 divideBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += ' ÷ ';
-    str += primaryDisplayDOM.textContent
+   
+    if (typeof (+ str) === 'number' && str.length > 0) {
+        if (str[str.length -1] !== ' '){
+            primaryDisplayDOM.textContent += ' ÷ ';
+            str += primaryDisplayDOM.textContent;
+        }
+    }
     
 });
 percentBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += ' % ';
-    str += primaryDisplayDOM.textContent
-    
+
+    if (typeof (+ str) === 'number' && str.length > 0) {
+        if (str[str.length -1] !== ' '){
+            primaryDisplayDOM.textContent += ' % ';
+            str += primaryDisplayDOM.textContent;
+        }
+    }
     
 });
 
@@ -185,6 +207,7 @@ equalBtnDOM.addEventListener('click', function () {
     primaryDisplayDOM.textContent;
     str += primaryDisplayDOM.textContent;
     
+    console.log(str)
     let numArr = str.split(' ');
     let count = 0;
 
@@ -201,15 +224,33 @@ equalBtnDOM.addEventListener('click', function () {
         else if (numArr[i] === '÷') {
             count /= (+ numArr[i += 1]);
         }
-        // else if (numArr[i] === '%') {
-        //      count += (+ (numArr[i+=1]));
-        // }
         else count += (+ numArr[i]);
     }
     console.log(count)
     
-    secondaryDisplayDOM.textContent += ('' + count);
-    console.log(str)
+    let countDot = 0;
+    const countToStr = ('' + count);
+
+    for (let i = 0; i < countToStr.length; i++) {
+        if (countToStr[i] === '.') {
+            countDot++
+        }
+    }
+
+    const result = countDot > 0 ? count.toFixed(10) : countToStr;
+    
+    secondaryDisplayDOM.textContent += result;
+    
+    const countLength = result.length;
+    const equalLength = secondaryDisplayDOM.textContent.length;
+
+        if (countLength !== equalLength) {
+            primaryDisplayDOM.textContent = '';
+            str += primaryDisplayDOM.textContent;
+            secondaryDisplayDOM.textContent = '';
+            str = '';
+        }
+    
 });
 
 
