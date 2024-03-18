@@ -184,19 +184,39 @@ divideBtnDOM.addEventListener('click', function () {
 });
 percentBtnDOM.addEventListener('click', function () {
 
+    
+
     if (typeof (+ str) === 'number' && str.length > 0) {
         if (str[str.length -1] !== ' '){
             primaryDisplayDOM.textContent += ' % ';
             str += primaryDisplayDOM.textContent;
         }
     }
-    
+
+   
 });
 
 dotBtnDOM.addEventListener('click', function () {
-    primaryDisplayDOM.textContent += '.';
-    str += primaryDisplayDOM.textContent
-    
+
+    let countDots = 0;
+
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === '.') {
+            countDots = i;
+        }
+        if (str[i] === '+' || str[i] === '-' || str[i] === '*' || str[i] === '÷') {
+            countDots = 0;
+        }
+    }
+
+    if (typeof (+ str) === 'number' && str.length > 0) {
+        if (str[str.length -1] !== '.' && str[str.length -1] !== ' ' && countDots === 0){
+            primaryDisplayDOM.textContent += '.';
+            str += primaryDisplayDOM.textContent;
+        }
+    } 
+
+
 });
 
 
@@ -237,8 +257,9 @@ equalBtnDOM.addEventListener('click', function () {
         }
     }
 
-    const result = countDot > 0 ? count.toFixed(10) : countToStr;
+    const result = countDot > 0 ? countToStr.length > 12 ? count.toFixed(10) :  countToStr : countToStr;
     
+
     secondaryDisplayDOM.textContent += result;
     
     const countLength = result.length;
